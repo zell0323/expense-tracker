@@ -30,7 +30,6 @@ db.once('open', () => {
             { length: 10 },
             (_, i) => {
               randomNumber = getRandomInt(categories.length - 1)
-              console.log(randomNumber, categories[randomNumber])
               return Record.create({
                 name: `name-${i}`,
                 date: new Date().toISOString().slice(0, 10),
