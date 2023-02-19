@@ -36,7 +36,6 @@ router.get('/:id', (req, res) => {
 
 
 router.post('/', (req, res) => {
-  console.log(req.user)
   const userId = req.user._id
   const attr = req.body
   attr.userId = userId

@@ -38,7 +38,6 @@ router.get('/', (req, res) => {
 })
 
 router.get('/category', (req, res) => {
-  console.log(req.query.category)
   const selectedCategory = req.query.category
   const userId = req.user._id
   Record.find({ userId })
@@ -54,17 +53,14 @@ router.get('/category', (req, res) => {
         .then(categories => {
           if (selectedCategory !== "全部類別") {
             records = records.filter(record => {
-              console.log(record.category)
               return record.category.includes(selectedCategory)
             })
           }
-          console.log(records)
           if (records.length !== 0) {
             let sum = 0
             for (const record of records) {
               sum = sum + record.amount
             }
-            console.log(sum)
             res.render('index', { records, categories, sum, selectedCategory })
           }
           else {
