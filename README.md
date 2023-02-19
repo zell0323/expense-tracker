@@ -28,7 +28,7 @@ FACEBOOK_ID= （facebook登入應用程式的ID)
 FACEBOOK_SECRET= （facebook登入應用程式的密鑰）
 FACEBOOK_CALLBACK=http://localhost:3000/auth/facebook/callback
 ```
-5. 執行種子檔案，建立user和record
+5. 執行種子檔案，建立預設使用者、支出紀錄、和支出類別
 ```
 npm run seed
 ```
