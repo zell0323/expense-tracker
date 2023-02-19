@@ -3,7 +3,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 const express = require('express')
 const app = express()
-const port = 3000
+const PORT = process.env.PORT || 3000
 const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
 const routes = require('./routes')
@@ -39,6 +39,6 @@ app.engine('hbs', exphbs.engine({ defaultLayout: 'main', extname: '.hbs' }))
 app.set('view engine', 'hbs')
 
 
-app.listen(port, () => {
-  console.log('start listening')
+app.listen(PORT, () => {
+  console.log(`App is running on http://localhost:${PORT}`)
 })
