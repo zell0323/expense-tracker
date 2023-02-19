@@ -1,0 +1,51 @@
+<!-- ./views/new.handlebars -->
+
+<div class="container d-flex flex-column align-items-center">
+
+
+  <form class="mt-3" action="/category">
+    <select class="form-select form-select-sm" size="1" name="category" onchange="submit(this.form)"
+      style="width: 300px;">
+      <option selected hidden>{{selectedCategory}}</option>
+      <option value="全部類別">全部類別</option>
+      {{#each categories}}
+      <option value="{{this.name}}">{{this.name}}</option>
+      {{/each}}
+    </select>
+  </form>
+
+
+  <span class="mt-3 fs-4">總金額：</span><span class="mt-3 fs-2">{{sum}}</span>
+  <table class="table table-borderless mt-5" style="width:50%;">
+    {{#each records}}
+    <tr>
+      <td class="text-center align-middle" style="width:15%;">
+        <span style="font-size: 2.5em; color:  #21bfff ;"><i class="{{this.icon}}" style></i></span>
+      </td>
+
+      <td class="text-start align-middle ps-3">
+        <span style="font-size: 1.3em">{{this.name}}</span>
+        <br>
+        <span style="font-size: 0.9em">{{this.date}}</span>
+      </td>
+
+      <td class="text-center align-middle"><span style="font-size: 1em">{{this.amount}}</span></td>
+
+      <td class="text-center align-middle"style="width:15%;">
+        <a href="/records/{{this._id}}/edit"><button class="btn btn-outline-dark">修改</button></a>
+      </td>
+
+      <td class="text-center align-middle" style="width:15%;">
+        <form action="/records/{{this._id}}?_method=DELETE" method="POST" style="display: inline;">
+          <button class="btn btn-outline-dark" type="submit">刪除</button>
+        </form>
+      </td>
+
+    </tr>
+    {{/each}}
+  </table>
+  <div>
+    <a class="btn btn-primary btn-block" href="/records/new">新增支出
+    </a>
+  </div>
+</div>
