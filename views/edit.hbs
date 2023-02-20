@@ -3,18 +3,18 @@
     <table class="table table-borderless" style="width:500px;">
       <tr>
         <th class="text-center align-middle">名稱</th>
-        <td><input class="form-control form-control-sm" type="text" value="{{record.name}}" name="name" style='width: 300px;'>
+        <td><input class="form-control form-control-sm" type="text" value="{{record.name}}" name="name" style='width: 300px;' required>
         </td>
       </tr>
       <tr>
         <th class="text-center align-middle">日期</th>
         <td>
-          <input class="form-control form-control-sm" type="date" value="{{record.date}}" name="date" style='width: 300px;'>
+          <input class="form-control form-control-sm" type="date" value="{{record.date}}" name="date" style='width: 300px;' required>
         </td>
       </tr>
       <tr>
         <th class="text-center align-middle">類別</th>
-        <td><select class="form-select form-select-sm" size="1" name="category" style="width: 300px;">
+        <td><select class="form-select form-select-sm" size="1" name="category" style="width: 300px;" required>
             <option selected hidden>{{record.category}}</option>
             {{#each categories}}
             <option value="{{this.name}}">{{this.name}}</option>
@@ -24,7 +24,7 @@
       <tr>
         <th class="text-center align-middle">金額</th>
         <td><input class="form-control form-control-sm" type="text" value="{{record.amount}}" name="amount"
-            style='width: 300px;'>
+            style='width: 300px;' required>
         </td>
       </tr>
     </table>
